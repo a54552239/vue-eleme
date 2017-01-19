@@ -4,18 +4,10 @@
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
-        <f-list></f-list>
-        <s-list></s-list>
     </div>
 </template>
-<style>
-    @import 'static/reset.css';
-</style>
-
 <script>
 import eHead from './components/header/head.vue';
-import fList from './components/index/foodlist.vue';
-import sList from './components/index/shoplist.vue';
 import { mapGetters } from 'vuex';
 export default {
   name: 'app',
@@ -38,7 +30,7 @@ export default {
     ])
   },
    components: {
-    eHead,fList,sList
+    eHead
    }
 }
 

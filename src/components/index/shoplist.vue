@@ -65,15 +65,15 @@
         },
         methods:{
             loadMore:function () {
-                setTimeout(()=>{
+                if(this.$route.path=='/index'){
                     this.offset = this.offset+this.limit;
-                    this.$http.jsonp('http://192.168.1.137/PhalApi/Public/demo/?service=User.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                    this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
                         var data = JSON.parse(res.data.data);
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
                         }
                     });
-                },0)
+                }
             },
             showImgpath:function (imgpath) {
                 if(imgpath.indexOf('jpeg')!=-1){
@@ -86,10 +86,17 @@
             }
         },
         created:function () {
-            
-            this.$http.jsonp('http://192.168.1.137/PhalApi/Public/demo/?service=User.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
-                this.shoplist = JSON.parse(res.data.data);
-            });
+            if(this.$route.path=='/index'){
+                this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                    this.shoplist = JSON.parse(res.data.data);
+                });
+            }else if(this.$route.path=='/restaurant_category'){
+                let category_id = this.$store.state.restaurant_categor_id;
+                this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
+                    this.shoplist = JSON.parse(res.data.data);
+                });
+
+            }
         },
         name:'s-list',
         computed:{

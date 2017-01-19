@@ -4,7 +4,15 @@ Vue.use(VueRouter);
 
 
 const router = new VueRouter({
-	routes:[]
+	routes:[
+        {
+            path:'/index',component:require('../views/index.vue')
+        },{
+            path:'/restaurant_category',component:require('../views/restaurant_category.vue')
+        },{
+            path:'*',redirect:'/index'
+        }
+	]
 });
 
 
