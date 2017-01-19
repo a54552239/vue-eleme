@@ -16,6 +16,7 @@ const store = new Vuex.Store({
         name:'vilson'
     },
     getters: {
+        restaurant_categor_id:state=>restaurant_categor_id,
         head: state=>state.head,
         isLogin:state=>isLogin
     },
