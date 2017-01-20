@@ -4,7 +4,7 @@
   "author": "yi.shyang@ele.me",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --host 192.168.1.137 --port 9095",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --host 192.168.1.101 --port 9095",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {

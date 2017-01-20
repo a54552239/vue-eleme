@@ -6,6 +6,9 @@
         </div>
     </div>
 </template>
+<style>
+    @import './static/reset.css';
+</style>
 <script>
 import eHead from './components/header/headIndex.vue';
 export default {

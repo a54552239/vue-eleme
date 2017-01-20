@@ -1,0 +1,78 @@
+.geosearch-header {
+    background: #fff;
+    padding: 11px;
+    display: flex;
+
+}
+.geosearch-header .geosearch-header-input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f2f2f2;
+    outline: 0;
+    padding-left: 4px;
+    font-size: 1rem;
+    font-family: PingFangSC-Regular, Helvetica Neue, Tahoma, Arial, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+}
+.geosearch-header .geosearch-header-button {
+    border: none;
+    border-radius: 4px;
+    padding: 11px 24px;
+    width: 80px;
+    color: #fff;
+    background: #3199e8;
+    margin-left: 10px;
+    outline: 0;
+    font-size: 1rem;
+    font-family: PingFangSC-Regular, Helvetica Neue, Tahoma, Arial, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+}
+.geosearch-title {
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    color: #666;
+}
+.geosearch-results {
+    background: #fff;
+}
+.geosearch-results .geosearch-results-restaurantcontainer {
+    font-size: 14px;
+    padding: 15px;
+}
+.geosearch-results .geosearch-results-restaurantcontainer .geosearch-restaurantcontainer-content {
+    flex: 1;
+    margin-left: 50px;
+}
+.geosearch-results .geosearch-results-restaurantcontainer .geosearch-restaurantcontainer-content .geosearch-restaurantcontainer-activity {
+    font-size: 13px;
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+.geosearch-history .geosearch-history-item, .geosearch-results .geosearch-body, .geosearch-results li {
+    border-bottom: 1px solid #ddd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(221, 221, 221);
+}
+.geosearch-results .geosearch-results-restaurantcontainer .geosearch-restaurantcontainer-content .geosearch-restaurantcontainer-activity .geosearch-icon {
+    border-radius: 4px;
+    color: #fff;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.activity-offline {
+    color: #FF6000;
+    line-height: 1.5em;
+}
+.img {
+    border: 0;
+    max-width: 100%;
+    position: absolute;
+}
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
