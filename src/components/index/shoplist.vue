@@ -55,18 +55,20 @@
     }
 </style>
 <script type="es6">
+    import { InfiniteScroll } from 'mint-ui';
     import { Indicator } from 'mint-ui';
     export default{
         data(){
             return{
                 show_index_title:true,
-                shoplist:'',
-                offset:0,
+                shoplist:[],
+                offset:-10,
                 limit:10
             }
         },
         methods:{
             loadMore:function () {
+                Indicator.open();
                 this.offset = this.offset+this.limit;
                 if(this.$route.path=='/index'){
                     this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
@@ -74,6 +76,7 @@
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
                         }
+                        Indicator.close();
                     });
                 }else{
                     let category_id = this.$store.state.restaurant.categor_id;
@@ -82,6 +85,7 @@
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
                         }
+                        Indicator.close();
                     });
                 }
             },
@@ -92,24 +96,6 @@
                     var imgpath = "http://fuss10.elemecdn.com/"+imgpath+".png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/";
                 }
                 return imgpath;
-
-            }
-        },
-        created:function () {
-            Indicator.open();
-            if(this.$route.path=='/index'){
-                this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
-                    this.shoplist = JSON.parse(res.data.data);
-                    Indicator.close();
-                });
-            }else if(this.$route.path=='/restaurant_category'){
-                this.show_index_title = false;
-                this.$store.state.head.toggle = true;
-                let category_id = this.$store.state.restaurant.categor_id;
-                this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
-                    this.shoplist = JSON.parse(res.data.data);
-                    Indicator.close();
-                });
 
             }
         },
