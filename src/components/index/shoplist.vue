@@ -1,12 +1,12 @@
 <template>
     <div>
-        <h3 class="index-title">
-            <span><i class="fa fa-shopping-cart" style="font-size:1rem"></i> 附近商家</span>
+        <h3 class="index-title" v-if="show_index_title">
+            <strong> 推荐商家</strong>
         </h3>
         <section
                 v-infinite-scroll="loadMore"
                 infinite-scroll-disabled="loading"
-                infinite-scroll-distance="10"
+                infinite-scroll-distance="20"
                 class="shoplist">
             <section class="item" v-for="(shop,index) in shoplist">
                 <div class="left-wrap" @click.native="itemClicks(index)">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="right-wrap">
                     <section class="line">
-                        <h3 class="shopname">{{ shop.name }}</h3>
+                        <h3 class="shopname"> <span class="premiums" v-if="shop.is_premium">品牌</span> {{ shop.name }}</h3>
                         <div class="support-wrap">
                             <span class="supports-span" v-for="(support,supportIndex) in shop.supports">{{ support.icon_name }}</span>
                         </div>
@@ -55,9 +55,11 @@
     }
 </style>
 <script type="es6">
+    import { Indicator } from 'mint-ui';
     export default{
         data(){
             return{
+                show_index_title:true,
                 shoplist:'',
                 offset:0,
                 limit:10
@@ -65,9 +67,17 @@
         },
         methods:{
             loadMore:function () {
+                this.offset = this.offset+this.limit;
                 if(this.$route.path=='/index'){
-                    this.offset = this.offset+this.limit;
-                    this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                    this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                        var data = JSON.parse(res.data.data);
+                        for(var i=0;i<data.length;i++){
+                            this.shoplist.push(data[i]);
+                        }
+                    });
+                }else{
+                    let category_id = this.$store.state.restaurant.categor_id;
+                    this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
                         var data = JSON.parse(res.data.data);
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
@@ -86,14 +96,19 @@
             }
         },
         created:function () {
+            Indicator.open();
             if(this.$route.path=='/index'){
-                this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
                     this.shoplist = JSON.parse(res.data.data);
+                    Indicator.close();
                 });
             }else if(this.$route.path=='/restaurant_category'){
-                let category_id = this.$store.state.restaurant_categor_id;
-                this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
+                this.show_index_title = false;
+                this.$store.state.head.toggle = true;
+                let category_id = this.$store.state.restaurant.categor_id;
+                this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
                     this.shoplist = JSON.parse(res.data.data);
+                    Indicator.close();
                 });
 
             }

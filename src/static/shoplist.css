@@ -69,6 +69,19 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+.right-wrap .premiums{
+    margin-right: .133333rem;
+    padding: 0 .15rem;
+    /* height: .5rem; */
+    border-radius: .053333rem;
+    background-color: #ffd930;
+    color: #52250a;
+    vertical-align: top;
+    text-align: center;
+    font-weight: 700;
+    font-size: .293333rem;
+    line-height: 1.5rem;
+}
 
 .line {
     display: -webkit-box;

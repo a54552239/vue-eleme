@@ -1,10 +1,12 @@
 <template>
     <div>
+        <e-head></e-head>
         <s-list></s-list>
     </div>
 </template>
 
 <script type="es6">
+    import eHead from '../components/header/head.vue';
     import fList from '../components/index/foodlist.vue';
     import sList from '../components/index/shoplist.vue';
     export default{
@@ -17,7 +19,7 @@
         },
         methods: {},
         components: {
-            fList, sList
+            eHead,fList, sList
         },
     }
 </script>

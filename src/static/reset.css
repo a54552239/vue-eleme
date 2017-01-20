@@ -1,3 +1,18 @@
+a {
+    outline: none;
+    color: #333;
+    text-decoration: none;
+}
+
+#app {
+    font-family: PingFangSC-Regular, Helvetica Neue, Tahoma, Arial, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+}
+.index-top{
+    margin-top:2.5rem;
+}
 .mint-swipe-indicator.is-active {
     background: #000 !important;
     opacity: 0.6;
