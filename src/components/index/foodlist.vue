@@ -74,7 +74,7 @@
         },
         created: function () {
 
-            this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getIndexEntry',).then(function (res) {
+            this.$http.jsonp('http://vilson.online/Public/demo/?service=Eleme.getIndexEntry',).then(function (res) {
                 this.indexEntry = JSON.parse(res.data.data);
             });
         },

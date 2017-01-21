@@ -63,8 +63,8 @@
                     return false;
                 }
                 Indicator.open();
-                // 'http://192.168.1.137/MyApi/Public/demo/?service=Eleme.search&keyword='+this.keyword+'&search_type=restaurants'
-                this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset=0&limit=10',).then(function (res) {
+                // 'http://vilson.online/Public/demo/?service=Eleme.search&keyword='+this.keyword+'&search_type=restaurants'
+                this.$http.jsonp('http://vilson.online/Public/demo/?service=Eleme.getShops&offset=0&limit=10',).then(function (res) {
                     var data = JSON.parse(res.data.data);
                     for (var i = 0; i < data.length; i++) {
                         this.shoplist.push(data[i]);
