@@ -13,9 +13,9 @@
 </template>
 
 <script type="es6">
-    import eHead from '../components/header/head.vue';
-    import fList from '../components/index/foodlist.vue';
-    import sList from '../components/index/shoplist.vue';
+    import eHead from '../components/header/head';
+    import fList from '../components/index/foodlist';
+    import sList from '../components/index/shoplist';
     export default{
         data(){
             return {

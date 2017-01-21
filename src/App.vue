@@ -10,7 +10,7 @@
     @import './static/reset.css';
 </style>
 <script>
-import eHead from './components/header/headIndex.vue';
+import eHead from './components/header/headIndex';
 export default {
   name: 'app',
    components: {

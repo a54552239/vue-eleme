@@ -71,7 +71,7 @@
                 Indicator.open();
                 this.offset = this.offset+this.limit;
                 if(this.$route.path=='/index'){
-                    this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
+                    this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getShops&offset='+this.offset+'&limit='+this.limit, ).then(function(res){
                         var data = JSON.parse(res.data.data);
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
@@ -80,7 +80,7 @@
                     });
                 }else{
                     let category_id = this.$store.state.restaurant.categor_id;
-                    this.$http.jsonp('http://192.168.1.101/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
+                    this.$http.jsonp('http://192.168.1.137/MyApi/Public/demo/?service=Eleme.getRestaurantCategory&offset='+this.offset+'&limit='+this.limit+'&category_id='+category_id, ).then(function(res){
                         var data = JSON.parse(res.data.data);
                         for(var i=0;i<data.length;i++){
                             this.shoplist.push(data[i]);
