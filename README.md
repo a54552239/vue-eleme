@@ -1,18 +1,17 @@
-# vue-vonic2
+# vue-eleme
 
-> A Vue.js project
+> vue 仿饿了么wap端首页 
+<br>演示地址 <a href="http://123.207.229.16:9095">http://123.207.229.16:9095</a>
 
-## Build Setup
+## 安装
 
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# 服务器地址 localhost:9095
 npm run dev
 
-# build for production with minification
-npm run build
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
