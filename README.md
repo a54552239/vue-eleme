@@ -6,10 +6,10 @@
 ## 安装
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# 服务器地址 localhost:9095
+# 运行 localhost:9095
 npm run dev
 
 ```
